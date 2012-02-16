@@ -27,7 +27,6 @@
 
 <body data-spy="scroll" data-target=".subnav" data-offset="50">
 
-
 <!-- Navbar
 ================================================== -->
 <div class="navbar navbar-fixed-top">
@@ -40,83 +39,55 @@
             </a>
             <a class="brand" href="./index.html">soapbox.io</a>
 
-            <div class="nav-collapse">
-                <ul class="nav">
-                    <li class="">
-                        <a href=#>Section 1</a>
-                    </li>
-                    <li class="">
-                        <a href=#>Section 2</a>
-                    </li>
-                    <li class="">
-                        <a href=#>Section 3</a>
-                    </li>
-                    <li class="">
-                        <a href=#>Section 4</a>
-                    </li>
-                    <li class="">
-                        <a href=#>Section 5</a>
-                    </li>
-                </ul>
-            </div>
+
         </div>
     </div>
 </div>
 
 <div class="container">
 
-<!-- Masthead
-================================================== -->
-<header class="jumbotron subhead" id="overview">
-    <h1>API Title</h1>
+    <!-- Masthead
+   ================================================== -->
+    <header class="jumbotron subhead" id="overview">
+        <h1>API Title</h1>
 
-    <p class="lead">Right now our API is very much in flux, so while on this version, expect changes.</p>
+        <p class="lead">Right now our API is very much in flux, so while on this version, expect changes.</p>
 
-    <div class="subnav">
-        <ul class="nav nav-pills">
-            <li><a href="#subsection1">Subsection 1</a></li>
-            <li><a href="#subsection2">Subsection 2</a></li>
-            <li><a href="#subsection3">Subsection 3</a></li>
-            <li><a href="#subsection4">Subsection 4</a></li>
-            <li><a href="#subsection5">Subsection 5</a></li>
-        </ul>
-    </div>
-</header>
+        <div class="subnav">
+            <ul class="nav nav-pills">
+                <li><a href="#subsection1">Subsection 1</a></li>
+                <li><a href="#subsection2">Subsection 2</a></li>
+                <li><a href="#subsection3">Subsection 3</a></li>
+                <li><a href="#subsection4">Subsection 4</a></li>
+                <li><a href="#subsection5">Subsection 5</a></li>
+            </ul>
+        </div>
+    </header>
 
+    <section id="subsection1">
 
-<section id="subsection1">
+        <div class="page-header">
 
-    <div class="page-header">
-
-        <h1>Sub Section Heading
-            <small>For, you guessed it, an API Sub Section</small>
-        </h1>
-    </div>
-
-    <div class="row">
-
-        <div class="span4">
-
-            <h3>API Sub Section Notes</h3>
-
-            <p>API's are automatically styled with only a few borders to ensure readability and maintain structure.
-                With 2.0, the more info to go here. </p>
+            <h1>Sub Section Heading <small>For, you guessed it, an API Sub Section</small>
+            </h1>
         </div>
 
-        <div class="span8">
+        <div class="row">
+            <div class="span12">
+                <div class="breadcrumb">
+                    <h3>/some/url
+                        <small>A short description</small>
+                    </h3>
 
-            <div class="breadcrumb">
-                <h3>/some/url <small>A short description</small></h3>
+                    <span class="label label-success">GET</span>
+                    <span class="label label-warning">POST</span>
+                    <span class="label label-info">PUT</span>
+                    <span class="label label-important">DELETE</span>
+                </div>
 
-                <span class="label label-success">GET</span>
-                <span class="label label-warning">POST</span>
-                <span class="label label-info">PUT</span>
-                <span class="label label-important">DELETE</span>
-            </div>
-
-            <blockquote>
-                <h4>Request information or sample</h4>
-            </blockquote>
+                <blockquote>
+                    <h4>Request information or sample</h4>
+                </blockquote>
 
                 <pre class="prettyprint well">POST /api/user/register HTTP/1.1
 Host: rsajobs
@@ -132,9 +103,9 @@ Content-Type: application/json
 }
 </pre>
 
-            <blockquote>
-                <h4>Response information or sample</h4>
-            </blockquote>
+                <blockquote>
+                    <h4>Response information or sample</h4>
+                </blockquote>
 
                 <pre class="prettyprint well">HTTP/1.1 200 OK
 X-Powered-By: PHP/5.3.1
@@ -159,484 +130,74 @@ Content-Type: application/json
 }
 </pre>
 
-            <div class="alert alert-block">
-                <h5>Notes</h5>
+                <div class="alert alert-block">
+                    <h5>Notes</h5>
 
-                <p>Here is the Notes text as you would expect.</p>
-            </div>
+                    <p>Here is the Notes text as you would expect.</p>
+                </div>
 
-            <blockquote>
-                <h4>Exceptions &amp; Return Codes</h4>
-            </blockquote>
+                <blockquote>
+                    <h4>Exceptions &amp; Return Codes</h4>
+                </blockquote>
 
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>HTTP Code</th>
-                    <th>Definition</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="alert alert-danger">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr class="alert alert-success">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr class="alert alert-info">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr class="alert alert-block">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                </tbody>
-            </table>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>HTTP Code</th>
+                        <th>Definition</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="alert alert-danger">
+                        <td>XXX</td>
+                        <td>Exception details</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>XXX</td>
+                        <td>Exception details</td>
+                    </tr>
+                    <tr class="alert alert-info">
+                        <td>XXX</td>
+                        <td>Exception details</td>
+                    </tr>
+                    <tr class="alert alert-block">
+                        <td>XXX</td>
+                        <td>Exception details</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-            <blockquote>
-                <h4>Code Sample</h4>
-            </blockquote>
-
-            <pre class="prettyprint linenums">
-&lt;?php
-    echo "Hello";
-?&gt;</pre>
-
-
-        </div>
-    </div>
-
-    <br/>
-
-    <div class="row">
-
-        <div class="span4">
-            <!-- empty -->
-            &nbsp;
-        </div>
-
-        <div class="span8">
-
-            <div class="breadcrumb">
-                <h3>/some/url</h3>
-
-                <span class="label label-success">GET</span>
-                <span class="label label-warning">POST</span>
-                <span class="label label-info">PUT</span>
-                <span class="label label-important">DELETE</span>
-            </div>
-
-            <blockquote>
-                <h4>Request information or sample</h4>
-            </blockquote>
-
-                <pre class="prettyprint well">POST /api/user/register HTTP/1.1
-Host: rsajobs
-Content-Length: 163
-Content-Type: application/json
-
-{
-    "type": "Recruiter/Employer",
-    "email": "danny@dannykopping.co.za",
-    "firstName": "Danny",
-    "lastName": "Kopping",
-    "password": "7c4a8d09ca3762af61e59520943dc26494f8941b"
-}
-</pre>
-
-            <blockquote>
-                <h4>Response information or sample</h4>
-            </blockquote>
-
-                <pre class="prettyprint well">HTTP/1.1 200 OK
-X-Powered-By: PHP/5.3.1
-Content-Length: 226
-Content-Encoding: gzip
-Vary: Accept-Encoding
-Content-Type: application/json
-
-{
-    "id": "4135",
-    "firstName": "Danny",
-    "lastName": "Kopping",
-    "email": "danny@dannykopping.co.za",
-    "password": "",
-    "type": "Recruiter/Employer",
-    "active": true,
-    "verified": true,
-    "accountVerificationCodeId": null,
-    "createdAt": "2012-02-16 13:26:03",
-    "updatedAt": "2012-02-16 13:26:03",
-    "_explicitType": "za.co.rsajobs.vo.User"
-}
-</pre>
-
-            <div class="alert alert-block">
-                <h5>Notes</h5>
-
-                <p>Here is the Notes text as you would expect.</p>
-            </div>
-
-            <blockquote>
-                <h4>Exceptions &amp; Return Codes</h4>
-            </blockquote>
-
-            <table class="table table-bordered">
-                <thead>
-                <tr>
-                    <th>HTTP Code</th>
-                    <th>Definition</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="alert alert-danger">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr class="alert alert-success">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr class="alert alert-info">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr class="alert alert-block">
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                </tbody>
-            </table>
-
-            <blockquote>
-                <h4>Code Sample</h4>
-            </blockquote>
+                <blockquote>
+                    <h4>Code Sample</h4>
+                </blockquote>
 
             <pre class="prettyprint linenums">
 &lt;?php
     echo "Hello";
 ?&gt;</pre>
 
-
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="subsection2">
 
-    <div class="page-header">
+    <!-- Footer
+   ================================================== -->
+    <footer class="footer">
+        <p class="pull-right"><a href="#">Back to top</a></p>
 
-        <h1>Sub Section Heading
-            <small>For, you guessed it, an API Sub Section</small>
-        </h1>
-    </div>
+        <p>Designed and built with all the love in the world <a href="http://soapbox.io" target="_blank">@soapbox</a>
+            by <a href="http://twitter.com/dkc" target="_blank">@dannykopping</a> and <a
+                    href="http://twitter.com/thinkadoo"
+                    target="_blank">@thinkadoo</a>.</p>
 
-    <div class="row">
+        <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License
+            v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
+        </p>
 
-        <div class="span4">
-
-            <h3>API Sub Section Notes</h3>
-
-            <p>API's are automatically styled with only a few borders to ensure readability and maintain structure.
-                With 2.0, the more info to go here. </p>
-        </div>
-
-        <div class="span8">
-
-            <p class="pull-right"><b>[Acceptable Verbs]</b></p>
-
-            <h3>/some/url</h3>
-            <br>
-            <h4>Request information or sample</h4>
-            <br>
-            <h4>Response information or sample</h4>
-            <br>
-            <h5>Notes (if necessary)</h5>
-
-            <p>Here is the Notes text as you would expect.</p>
-            <br>
-            <h4>Possible Exceptions</h4>
-
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Exception</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                </tbody>
-            </table>
-            <h4>Code Snippets (if necessary)</h4>
-
-            <p>Code snippets with syntax highlighting</p>
-
-
-        </div>
-    </div>
-</section>
-
-
-<section id="subsection3">
-
-    <div class="page-header">
-
-        <h1>Sub Section Heading
-            <small>For, you guessed it, an API Sub Section</small>
-        </h1>
-    </div>
-
-    <div class="row">
-
-        <div class="span4">
-
-            <h3>API Sub Section Notes</h3>
-
-            <p>API's are automatically styled with only a few borders to ensure readability and maintain structure.
-                With 2.0, the more info to go here. </p>
-        </div>
-
-        <div class="span8">
-
-            <p class="pull-right"><b>[Acceptable Verbs]</b></p>
-
-            <h3>/some/url</h3>
-            <br>
-
-            <h4>Request information or sample</h4>
-            <br>
-
-            <h4>Response information or sample</h4>
-            <br>
-
-            <h5>Notes (if necessary)</h5>
-
-            <p>Here is the Notes text as you would expect.</p>
-            <br>
-
-            <h4>Possible Exceptions</h4>
-
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Exception</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                </tbody>
-            </table>
-            <h4>Code Snippets (if necessary)</h4>
-
-            <p>Code snippets with syntax highlighting</p>
-
-
-        </div>
-    </div>
-</section>
-
-
-<section id="subsection4">
-
-    <div class="page-header">
-
-        <h1>Sub Section Heading
-            <small>For, you guessed it, an API Sub Section</small>
-        </h1>
-    </div>
-
-    <div class="row">
-
-        <div class="span4">
-
-            <h3>API Sub Section Notes</h3>
-
-            <p>API's are automatically styled with only a few borders to ensure readability and maintain structure.
-                With 2.0, the more info to go here. </p>
-        </div>
-
-        <div class="span8">
-
-            <p class="pull-right"><b>[Acceptable Verbs]</b></p>
-
-            <h3>/some/url</h3>
-            <br>
-
-            <h4>Request information or sample</h4>
-            <br>
-
-            <h4>Response information or sample</h4>
-            <br>
-
-            <h5>Notes (if necessary)</h5>
-
-            <p>Here is the Notes text as you would expect.</p>
-            <br>
-
-            <h4>Possible Exceptions</h4>
-
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Exception</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                </tbody>
-            </table>
-            <h4>Code Snippets (if necessary)</h4>
-
-            <p>Code snippets with syntax highlighting</p>
-
-
-        </div>
-    </div>
-</section>
-
-
-<section id="subsection5">
-
-    <div class="page-header">
-
-        <h1>Sub Section Heading
-            <small>For, you guessed it, an API Sub Section</small>
-        </h1>
-    </div>
-
-    <div class="row">
-
-        <div class="span4">
-
-            <h3>API Sub Section Notes</h3>
-
-            <p>API's are automatically styled with only a few borders to ensure readability and maintain structure.
-                With 2.0, the more info to go here. </p>
-        </div>
-
-        <div class="span8">
-
-            <p class="pull-right"><b>[Acceptable Verbs]</b></p>
-
-            <h3>/some/url</h3>
-            <br>
-
-            <h4>Request information or sample</h4>
-            <br>
-
-            <h4>Response information or sample</h4>
-            <br>
-
-            <h5>Notes (if necessary)</h5>
-
-            <p>Here is the Notes text as you would expect.</p>
-            <br>
-
-            <h4>Possible Exceptions</h4>
-
-            <table class="table">
-                <thead>
-                <tr>
-                    <th>Exception</th>
-                    <th>Description</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                <tr>
-                    <td>XXX</td>
-                    <td>Exception details</td>
-                </tr>
-                </tbody>
-            </table>
-            <h4>Code Snippets (if necessary)</h4>
-
-            <p>Code snippets with syntax highlighting</p>
-
-
-        </div>
-    </div>
-</section>
-
-
-<!-- Footer
-================================================== -->
-<footer class="footer">
-    <p class="pull-right"><a href="#">Back to top</a></p>
-
-    <p>Designed and built with all the love in the world <a href="http://soapbox.io" target="_blank">@soapbox</a>
-        by <a href="http://twitter.com/dkc" target="_blank">@dannykopping</a> and <a href="http://twitter.com/thinkadoo"
-                                                                                     target="_blank">@thinkadoo</a>.</p>
-
-    <p>Code licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License
-        v2.0</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.
-    </p>
-
-    <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a
-            href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-</footer>
+        <p>Icons from <a href="http://glyphicons.com">Glyphicons Free</a>, licensed under <a
+                href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+    </footer>
 
 
 </div>
