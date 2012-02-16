@@ -2,7 +2,7 @@
     class SectionElement extends BaseElement
     {
         private $content = <<<EOT
-<section id="subsection{{index}}">
+<section id="section{{index}}">
 
     <div class="page-header">
 
@@ -94,12 +94,17 @@ EOT;
             if(empty($this->requests))
                 return "";
 
+            $requests = "";
+
             foreach($this->requests as $request)
             {
-                // ...
+                if(empty($request) || !$request || !is_a($request, "RequestElement"))
+                    continue;
+
+                $requests .= $request->getHTMLContent()."\n";
             }
 
-            return "";
+            return $requests;
         }
     }
 ?>

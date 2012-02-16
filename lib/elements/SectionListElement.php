@@ -2,7 +2,7 @@
     class SectionListElement extends BaseElement
     {
         private $content = <<<EOT
-<li><a href="#subsection{{index}}">{{name}}</a></li>
+<li><a href="#section{{index}}">{{name}}</a></li>
 EOT;
 
         private $index;

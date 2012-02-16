@@ -1,0 +1,81 @@
+<api>
+    <document title="soapbox.io" description="Providing sexy fucking APIs"/>
+
+    <sections>
+        <section index="1" name="User API" description="An API for getting User data">
+            <request url="/user/get" verbs="GET,POST,PUT,DELETE,HEAD,PATCH">
+                <description>
+                    <![CDATA[Retrieve a particular <strong>user</strong>]]>
+                </description>
+
+                <code title="How this works..." showLineNumbers="true">
+                    <![CDATA[$userSaveReq = new RequestElement();
+$userSaveReq->setUrl("/user/get");
+$userSaveReq->setDescription("Save a new user");
+$userSaveReq->setVerbs(array($userSaveReq->getVerbByName("POST")));
+
+$section->setRequests(array($userGetReq, $userSaveReq));
+
+$content = replaceTokens(array($title, $sectionListElement1, $section), $content);
+]]>
+                </code>
+            </request>
+
+            <request url="/user/save" verbs="POST">
+                <description>
+                    <![CDATA[Save a <em>new</em> <strong>user</strong>]]>
+                </description>
+
+                <alert type="warning">
+                    <![CDATA[Be careful... You may get a boner.]]>
+                </alert>
+
+                <alert type="success">
+                    <![CDATA[Isn't life beautiful?]]>
+                </alert>
+
+                <table title="Here's a table example" columns="Column 1,Column 2">
+                    <row type="info">
+                        <cell>A</cell>
+                        <cell>B</cell>
+                    </row>
+                    <row type="error">
+                        <cell>C</cell>
+                        <cell>D</cell>
+                    </row>
+                    <row>
+                        <cell>E</cell>
+                        <cell>F</cell>
+                    </row>
+                </table>
+            </request>
+        </section>
+
+
+        <section index="2" name="Image API" description="An API for getting Image data">
+            <request url="/image/get" verbs="POST">
+                <description>
+                    <![CDATA[Retrieve a particular image]]>
+                </description>
+
+                <code title="How this works..." showLineNumbers="false">
+                    <![CDATA[HTTP/1.1 200 OK
+                    Date: Thu, 16 Feb 2012 11:26:02 GMT
+                    Server: Apache/2.2.14 (Unix) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l PHP/5.3.1 mod_perl/2.0.4 Perl/v5.10.1
+                    X-Powered-By: PHP/5.3.1
+                    Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+                    Pragma: no-cache
+                    Content-Length: 226
+                    Access-Control-Allow-Origin: *
+                    Content-Encoding: gzip
+                    Vary: Accept-Encoding
+                    Content-Type: application/json
+                    Expires: 0
+
+                    {"id":"4135","firstName":"Danny","lastName":"Kopping","email":"danny@dannykopping.co.za","password":"","type":"Recruiter\/Employer","active":true,"verified":true,"accountVerificationCodeId":null,"createdAt":"2012-02-16 13:26:03","updatedAt":"2012-02-16 13:26:03","_explicitType":"za.co.rsajobs.vo.User"}
+]]>
+                </code>
+            </request>
+        </section>
+    </sections>
+</api>

@@ -12,7 +12,7 @@
             {{verbs}}
         </div>
 
-        {{otherElements}}
+        {{elements}}
     </div>
 </div>
 EOT;
@@ -31,8 +31,8 @@ EOT;
         private $elements;
 
         const GET_VERB = '<span class="label label-success">GET</span>';
-        const POST_VERB = '<span class="label label-warning">POST</span>';
-        const PUT_VERB = '<span class="label label-info">PUT</span>';
+        const PUT_VERB = '<span class="label label-warning">PUT</span>';
+        const POST_VERB = '<span class="label label-info">POST</span>';
         const DELETE_VERB = '<span class="label label-important">DELETE</span>';
         const HEAD_VERB = '<span class="label">HEAD</span>';
         const PATCH_VERB = '<span class="label">PATCH</span>';
@@ -110,13 +110,13 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                     "url"            => $this->url,
-                                                     "description"    => $this->description,
+                                                     "url"            => trim($this->url),
+                                                     "description"    => trim($this->description),
                                                      "verbs"          => $this->parseVerbs(),
                                                      "elements"       => $this->parseElements(),
                                                 ), $this->content);
 
-            return $htmlContent;
+            return $htmlContent."\n<br/>\n";
         }
 
         private function parseVerbs()

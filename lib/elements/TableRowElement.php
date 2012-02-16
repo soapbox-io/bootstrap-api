@@ -2,7 +2,7 @@
     class TableRowElement extends BaseElement
     {
         private $content = <<<EOT
-<tr class="alert {{type}}">
+<tr class="{{type}}">
     {{fields}}
 </tr>
 EOT;
@@ -10,10 +10,10 @@ EOT;
         private $type;
         private $fields;
 
-        const INFO_TYPE = "alert-info";
-        const SUCCESS_TYPE = "alert-success";
-        const ERROR_TYPE = "alert-error";
-        const WARNING_TYPE = "alert-block";
+        const INFO_TYPE = "alert alert-info";
+        const SUCCESS_TYPE = "alert alert-success";
+        const ERROR_TYPE = "alert alert-error";
+        const WARNING_TYPE = "alert alert-block";
 
         public function setFields(array $fields)
         {
