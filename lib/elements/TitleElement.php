@@ -32,9 +32,9 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                 "title" => $this->title,
-                                                 "subTitle" => $this->subTitle,
-                                            ), $this->content);
+                                                     "title"    => $this->title,
+                                                     "subTitle" => $this->subTitle,
+                                                ), $this->content);
 
             return $htmlContent;
         }
@@ -44,4 +44,5 @@ EOT;
             return "titleElement";
         }
     }
+
 ?>

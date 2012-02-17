@@ -2,11 +2,11 @@
     class SectionListElement extends BaseElement
     {
         private $content = <<<EOT
-<li><a href="#section{{index}}">{{name}}</a></li>
+<li><a href="#section{{index}}">{{title}}</a></li>
 EOT;
 
         private $index;
-        private $name;
+        private $title;
 
         public function setIndex($index)
         {
@@ -18,22 +18,22 @@ EOT;
             return $this->index;
         }
 
-        public function setName($name)
+        public function setTitle($name)
         {
-            $this->name = $name;
+            $this->title = $name;
         }
 
-        public function getName()
+        public function getTitle()
         {
-            return $this->name;
+            return $this->title;
         }
 
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                 "index" => $this->index,
-                                                 "name" => $this->name,
-                                            ), $this->content);
+                                                     "index" => $this->index,
+                                                     "title"  => $this->title,
+                                                ), $this->content);
 
             return $htmlContent;
         }
@@ -43,4 +43,5 @@ EOT;
             return "sectionListElements";
         }
     }
+
 ?>

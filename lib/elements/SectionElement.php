@@ -80,11 +80,11 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                 "index" => $this->index,
-                                                 "title" => $this->title,
-                                                 "subTitle" => $this->subTitle,
-                                                 "requests" => $this->parseRequests()
-                                            ), $this->content);
+                                                     "index"    => $this->index,
+                                                     "title"    => $this->title,
+                                                     "subTitle" => $this->subTitle,
+                                                     "requests" => $this->parseRequests()
+                                                ), $this->content);
 
             return $htmlContent;
         }
@@ -101,10 +101,11 @@ EOT;
                 if(empty($request) || !$request || !is_a($request, "RequestElement"))
                     continue;
 
-                $requests .= $request->getHTMLContent()."\n";
+                $requests .= $request->getHTMLContent() . "\n";
             }
 
             return $requests;
         }
     }
+
 ?>

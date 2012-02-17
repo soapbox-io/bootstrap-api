@@ -60,9 +60,9 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                     "title" => $this->title,
+                                                     "title"    => $this->title,
                                                      "columns"  => $this->parseColumns(),
-                                                     "rows"  => $this->parseRows(),
+                                                     "rows"     => $this->parseRows(),
                                                 ), $this->content);
 
             return $htmlContent;
@@ -93,7 +93,7 @@ EOT;
                 if(empty($row) || !$row || !is_a($row, "TableRowElement"))
                     continue;
 
-                $rows .= $row->getHTMLContent()."\n";
+                $rows .= $row->getHTMLContent() . "\n";
             }
 
             return $rows;

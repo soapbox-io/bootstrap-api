@@ -34,15 +34,11 @@ EOT;
         const PUT_VERB = '<span class="label label-warning">PUT</span>';
         const POST_VERB = '<span class="label label-info">POST</span>';
         const DELETE_VERB = '<span class="label label-important">DELETE</span>';
-        const HEAD_VERB = '<span class="label">HEAD</span>';
-        const PATCH_VERB = '<span class="label">PATCH</span>';
 
         private $acceptableVerbs = array("GET"    => self::GET_VERB,
                                          "POST"   => self::POST_VERB,
                                          "PUT"    => self::PUT_VERB,
-                                         "DELETE" => self::DELETE_VERB,
-                                         "HEAD"   => self::HEAD_VERB,
-                                         "PATCH"  => self::PATCH_VERB);
+                                         "DELETE" => self::DELETE_VERB);
 
         public function setDescription($description)
         {
@@ -97,12 +93,12 @@ EOT;
 
         public function getVerbByName($verb)
         {
-            if (empty($verb))
+            if(empty($verb))
                 return null;
 
             $verb = strtoupper($verb);
-            if (!array_key_exists($verb, $this->acceptableVerbs))
-                return null;
+            if(!array_key_exists($verb, $this->acceptableVerbs))
+                return "<span class=\"label\">$verb</span>";
 
             return $this->acceptableVerbs[$verb];
         }
@@ -116,7 +112,7 @@ EOT;
                                                      "elements"       => $this->parseElements(),
                                                 ), $this->content);
 
-            return $htmlContent."\n<br/>\n";
+            return $htmlContent . "\n<br/>\n";
         }
 
         private function parseVerbs()
@@ -139,7 +135,7 @@ EOT;
                 if(!$element || empty($element) || !is_subclass_of($element, "BaseElement"))
                     continue;
 
-                $elementHTML .= $element->getHTMLContent()."\n";
+                $elementHTML .= $element->getHTMLContent() . "\n";
             }
 
             return $elementHTML;

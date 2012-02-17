@@ -18,6 +18,13 @@ EOT;
         const ERROR_TYPE = "alert-error";
         const WARNING_TYPE = "alert-block";
 
+        private $acceptableTypes = array(
+            "warning" => self::WARNING_TYPE,
+            "success" => self::SUCCESS_TYPE,
+            "error" => self::ERROR_TYPE,
+            "info" => self::INFO_TYPE,
+        );
+
         public function setText($text)
         {
             $this->text = $text;
@@ -48,6 +55,17 @@ EOT;
             return $this->type;
         }
 
+        public function getTypeByName($name)
+        {
+            if(empty($name))
+                return null;
+
+            if(!array_key_exists($name, $this->acceptableTypes))
+                return null;
+
+            return $this->acceptableTypes[$name];
+        }
+
         public function getElementName()
         {
             return "alertBoxElement";
@@ -56,12 +74,13 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                 "title" => $this->title,
-                                                 "type" => $this->type,
-                                                 "text" => trim($this->text),
-                                            ), $this->content);
+                                                     "title" => $this->title,
+                                                     "type"  => $this->type,
+                                                     "text"  => trim($this->text),
+                                                ), $this->content);
 
             return $htmlContent;
         }
     }
+
 ?>

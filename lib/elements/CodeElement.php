@@ -52,12 +52,13 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                 "title" => $this->title,
-                                                 "code" => trim(htmlentities($this->code)),
-                                                 "lineNumbers" => $this->showLineNumbers ? "linenums" : "",
-                                            ), $this->content);
+                                                     "title"       => $this->title,
+                                                     "code"        => trim(htmlentities($this->code)),
+                                                     "lineNumbers" => $this->showLineNumbers ? "linenums" : "",
+                                                ), $this->content);
 
             return $htmlContent;
         }
     }
+
 ?>

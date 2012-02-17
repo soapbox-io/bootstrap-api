@@ -15,6 +15,13 @@ EOT;
         const ERROR_TYPE = "alert alert-error";
         const WARNING_TYPE = "alert alert-block";
 
+        private $acceptableTypes = array(
+            "warning" => self::WARNING_TYPE,
+            "success" => self::SUCCESS_TYPE,
+            "error" => self::ERROR_TYPE,
+            "info" => self::INFO_TYPE,
+        );
+
         public function setFields(array $fields)
         {
             $this->fields = $fields;
@@ -35,6 +42,17 @@ EOT;
             return $this->type;
         }
 
+        public function getTypeByName($name)
+        {
+            if(empty($name))
+                return null;
+
+            if(!array_key_exists($name, $this->acceptableTypes))
+                return null;
+
+            return $this->acceptableTypes[$name];
+        }
+
         public function getElementName()
         {
             return "tableRowElement";
@@ -43,7 +61,7 @@ EOT;
         public function getHTMLContent()
         {
             $htmlContent = $this->replaceTokens(array(
-                                                     "type"  => $this->type,
+                                                     "type"    => $this->type,
                                                      "fields"  => $this->parseFields()
                                                 ), $this->content);
 
