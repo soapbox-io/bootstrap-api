@@ -1,6 +1,10 @@
 <?php
 
+// ------------------------------- Dependencies ----------------------------------
+
     spl_autoload_register("autoload");
+
+// ------------------------------- File IO ---------------------------------------
 
     $content = file_get_contents(dirname(__FILE__) . "/index.html");
 
@@ -122,12 +126,25 @@ Expires: 0
 
     $section2->setRequests(array($imageGetReq));
 
-    // Add a Section to the "page"
+
+
+// ------------------------------- Output ---------------------------------------
+
+    // Add a all the pieces to the "page" and replace tokens in existing html content
     $content = replaceTokens(array($title, $sectionListElement1,
                                   $sectionListElement2, $section, $section2), $content);
 
+// ------------------------------- File IO ---------------------------------------
+
     // final output to file - html in this case
     echo $content;
+
+
+
+
+
+
+
 
     function replaceTokens($elements, $content)
     {
