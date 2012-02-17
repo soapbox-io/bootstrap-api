@@ -2,6 +2,7 @@
     <document title="soapbox.io" description="Providing sexy fucking APIs"/>
 
     <sections>
+
         <section index="1" name="User API" description="An API for getting User data">
             <request url="/user/get" verbs="GET,POST,PUT,DELETE,HEAD,PATCH">
                 <description>
@@ -77,5 +78,7 @@ $content = replaceTokens(array($title, $sectionListElement1, $section), $content
                 </code>
             </request>
         </section>
+
     </sections>
+
 </api>

@@ -37,12 +37,15 @@
     $codeSnippet = new CodeElement();
     $codeSnippet->setShowLineNumbers(true);
     $codeSnippet->setTitle("How this works...");
+
+    // how to build a complex object
     $codeSnippet->setCode('$userSaveReq = new RequestElement();
 $userSaveReq->setUrl("/user/get");
 $userSaveReq->setDescription("Save a new user");
 $userSaveReq->setVerbs(array($userSaveReq->getVerbByName("POST")));
 
 $section->setRequests(array($userGetReq, $userSaveReq));
+
 
 $content = replaceTokens(array($title, $sectionListElement1, $section), $content);');
 
@@ -119,9 +122,11 @@ Expires: 0
 
     $section2->setRequests(array($imageGetReq));
 
+    // Add a Section to the "page"
     $content = replaceTokens(array($title, $sectionListElement1,
                                   $sectionListElement2, $section, $section2), $content);
 
+    // final output to file - html in this case
     echo $content;
 
     function replaceTokens($elements, $content)
