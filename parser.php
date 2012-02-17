@@ -8,9 +8,13 @@
 
     $content = file_get_contents(dirname(__FILE__) . "/index.html");
 
+// ------------------------------- Page Title ------------------------------------
+
     $title = new TitleElement();
     $title->setTitle("soapbox.io");
     $title->setSubTitle("Providing sexy fucking APIs");
+
+// ------------------------------- Sub Menu --------------------------------------
 
     $sectionListElement1 = new SectionListElement();
     $sectionListElement1->setIndex(1);
@@ -19,6 +23,8 @@
     $sectionListElement2 = new SectionListElement();
     $sectionListElement2->setIndex(2);
     $sectionListElement2->setName("Image API");
+
+// ------------------------------- Section1 Content ------------------------------
 
     $section = new SectionElement();
     $section->setIndex(1);
@@ -91,6 +97,8 @@ $content = replaceTokens(array($title, $sectionListElement1, $section), $content
 
     $section->setRequests(array($userGetReq, $userSaveReq));
 
+// ------------------------------- Section2 Content ------------------------------
+
     $section2 = new SectionElement();
     $section2->setIndex(2);
     $section2->setTitle("Image API");
@@ -145,6 +153,14 @@ Expires: 0
 
 
 
+
+
+
+
+
+
+
+// ------------------------------- Utilities ---------------------------------------
 
     function replaceTokens($elements, $content)
     {
