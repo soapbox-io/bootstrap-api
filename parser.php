@@ -57,19 +57,28 @@
         }
     }
 
+
     $content = ConfigParser::replaceTokens($elements, $content, false, $ignoredSections);
 
+    $isPreview = ((string) @$config["preview"] == "true");
+
     // final output to file
-    $zip = new Zip();
-    $zip->setComment("Created by soapbox.io's bootstrap-api");
 
-    $zip->addFile($content, "index.html");
-    $zip->addDirectoryContent(dirname(__FILE__)."/assets", "assets");
-    $zip->addDirectoryContent(dirname(__FILE__)."/docs", "docs");
-    $zip->addDirectoryContent(dirname(__FILE__)."/img", "img");
-    $zip->addDirectoryContent(dirname(__FILE__)."/js", "js");
+    if(!$isPreview)
+    {
+        $zip = new Zip();
+        $zip->setComment("Created by soapbox.io's bootstrap-api");
 
-    $zip->sendZip("api-docs.zip");
+        $zip->addFile($content, "index.html");
+        $zip->addDirectoryContent(dirname(__FILE__)."/assets", "assets");
+        $zip->addDirectoryContent(dirname(__FILE__)."/docs", "docs");
+        $zip->addDirectoryContent(dirname(__FILE__)."/img", "img");
+        $zip->addDirectoryContent(dirname(__FILE__)."/js", "js");
+
+        $zip->sendZip("api-docs.zip");
+    }
+    else
+        echo $content;
 
 
     function autoload($class)

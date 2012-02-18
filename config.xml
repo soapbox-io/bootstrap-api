@@ -1,4 +1,4 @@
-<api>
+<api preview="true">
     <document title="Sample API" description="Providing sample APIs to the world!"/>
 
     <sections>
