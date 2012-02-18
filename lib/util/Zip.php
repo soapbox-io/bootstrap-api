@@ -345,7 +345,7 @@ class Zip {
 			fwrite($this->zipFile, fread($file_handle, $this->streamChunkSize));
 		}
 
-		unlink($this->streamFile);
+		@unlink($this->streamFile);
 		$this->streamFile = NULL;
 		$this->streamData = NULL;
 		$this->streamFilePath = NULL;
