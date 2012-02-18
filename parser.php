@@ -5,6 +5,7 @@
     // load HTML template
     $content = @file_get_contents(dirname(__FILE__) . "/template.html");
 
+    // if the template is blank or cannot be read
     if(empty($content))
         die("The <strong>template.html</strong> file could not found or is not readable in ".dirname(__FILE__));
 
@@ -14,58 +15,22 @@
 
     $ignoredSections = array("errorElements");
 
+    // parse XML errors
     $errors = libxml_get_errors();
 
     if(!empty($errors))
     {
-        $elements = array();
+        $elements = ConfigParser::parseErrors($errors);
 
+        // change the ignored sections to the other elements so they don't show when viewing errors
         $ignoredSections = array("sectionElements", "sectionListElements");
-
-        $titleElement = new TitleElement();
-        $titleElement->setTitle("Error parsing configuration file");
-        $titleElement->setSubTitle("Please review the messages below");
-
-        $elements[] = $titleElement;
-
-        foreach($errors as $error)
-        {
-//            echo "<pre>".trim($error->message)." on line ".$error->line."</pre>\n";
-
-            $errorElement = new AlertBoxElement();
-            $errorElement->setText(ucfirst(trim($error->message))." on <strong>line ".$error->line."</strong>");
-
-            $severity = $error->level;
-            switch($severity)
-            {
-                default:
-                case LIBXML_ERR_WARNING:
-                    $errorElement->setTitle("Notice");
-                    $errorElement->setType(AlertBoxElement::INFO_TYPE);
-                    break;
-                case LIBXML_ERR_ERROR:
-                    $errorElement->setTitle("Warning");
-                    $errorElement->setType(AlertBoxElement::WARNING_TYPE);
-                    break;
-                case LIBXML_ERR_FATAL:
-                    $errorElement->setTitle("Fatal Error");
-                    $errorElement->setType(AlertBoxElement::ERROR_TYPE);
-                    break;
-            }
-
-            $elements[] = $errorElement;
-        }
-
-        $content = replaceTokens($elements, $content, true, $ignoredSections);
+        $content = ConfigParser::replaceTokens($elements, $content, true, $ignoredSections);
 
         // final output to file - html in this case
         die($content);
     }
-    else
-    {
 
-    }
-
+    // if the config is blank or cannot be read
     if(empty($config))
         die("<strong>config.xml</strong> file could not found or is not readable in ".dirname(__FILE__));
 
@@ -92,61 +57,20 @@
         }
     }
 
-    $content = replaceTokens($elements, $content, false, $ignoredSections);
+    $content = ConfigParser::replaceTokens($elements, $content, false, $ignoredSections);
 
-    // final output to file - html in this case
-    echo $content;
+    // final output to file
+    $zip = new Zip();
+    $zip->setComment("Created by soapbox.io's bootstrap-api");
 
-    function replaceTokens($elements, $content, $alertsAsExceptions=false, $ignoredSections=null)
-    {
-        // find common element names, and group them
-        $groups = array();
+    $zip->addFile($content, "index.html");
+    $zip->addDirectoryContent(dirname(__FILE__)."/assets", "assets");
+    $zip->addDirectoryContent(dirname(__FILE__)."/docs", "docs");
+    $zip->addDirectoryContent(dirname(__FILE__)."/img", "img");
+    $zip->addDirectoryContent(dirname(__FILE__)."/js", "js");
 
-        foreach($elements as $element)
-        {
-            if(empty($element))
-                continue;
+    $zip->sendZip("api-docs.zip");
 
-            $elementName = $element->getElementName();
-            if($elementName == "alertBoxElement" && $alertsAsExceptions)
-                $elementName = "errorElements";
-
-            if(!isset($groups[$elementName]))
-                $groups[$elementName] = array();
-
-            $groups[$elementName][] = $element;
-        }
-
-        // ignore sections by replacing their placeholders with blank data
-        if(!empty($ignoredSections))
-        {
-            foreach($ignoredSections as $ignored)
-                $content = str_replace("{{" . $ignored . "}}", "", $content);
-        }
-
-        if(empty($groups))
-            return $content;
-
-        foreach($groups as $type => $elements)
-        {
-            $combinedElements = "";
-
-            if(empty($type) || empty($elements))
-                continue;
-
-            foreach($elements as $element)
-            {
-                if(empty($element))
-                    continue;
-
-                $combinedElements .= $element->getHTMLContent() . "\n";
-            }
-
-            $content = str_replace("{{" . $type . "}}", $combinedElements, $content);
-        }
-
-        return $content;
-    }
 
     function autoload($class)
     {

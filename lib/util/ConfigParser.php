@@ -245,6 +245,103 @@
 
             return $tableElement;
         }
+
+        /**
+         * @static
+         * @param array $errors
+         * @return array
+         */
+        public static function parseErrors(array $errors)
+        {
+            $elements = array();
+
+            $titleElement = new TitleElement();
+            $titleElement->setTitle("Error parsing configuration file");
+            $titleElement->setSubTitle("Please review the messages below");
+
+            $elements[] = $titleElement;
+
+            foreach($errors as $error)
+            {
+                //            echo "<pre>".trim($error->message)." on line ".$error->line."</pre>\n";
+
+                $errorElement = new AlertBoxElement();
+                $errorElement->setText(ucfirst(trim($error->message)) . " on <strong>line " . $error->line . "</strong>");
+
+                $severity = $error->level;
+                switch($severity)
+                {
+                    default:
+                    case LIBXML_ERR_WARNING:
+                        $errorElement->setTitle("Notice");
+                        $errorElement->setType(AlertBoxElement::INFO_TYPE);
+                        break;
+                    case LIBXML_ERR_ERROR:
+                        $errorElement->setTitle("Warning");
+                        $errorElement->setType(AlertBoxElement::WARNING_TYPE);
+                        break;
+                    case LIBXML_ERR_FATAL:
+                        $errorElement->setTitle("Fatal Error");
+                        $errorElement->setType(AlertBoxElement::ERROR_TYPE);
+                        break;
+                }
+
+                $elements[] = $errorElement;
+            }
+
+            return $elements;
+        }
+
+        public static function replaceTokens($elements, $content, $alertsAsExceptions=false, $ignoredSections=null)
+        {
+            // find common element names, and group them
+            $groups = array();
+
+            foreach($elements as $element)
+            {
+                if(empty($element))
+                    continue;
+
+                $elementName = $element->getElementName();
+                if($elementName == "alertBoxElement" && $alertsAsExceptions)
+                    $elementName = "errorElements";
+
+                if(!isset($groups[$elementName]))
+                    $groups[$elementName] = array();
+
+                $groups[$elementName][] = $element;
+            }
+
+            // ignore sections by replacing their placeholders with blank data
+            if(!empty($ignoredSections))
+            {
+                foreach($ignoredSections as $ignored)
+                    $content = str_replace("{{" . $ignored . "}}", "", $content);
+            }
+
+            if(empty($groups))
+                return $content;
+
+            foreach($groups as $type => $elements)
+            {
+                $combinedElements = "";
+
+                if(empty($type) || empty($elements))
+                    continue;
+
+                foreach($elements as $element)
+                {
+                    if(empty($element))
+                        continue;
+
+                    $combinedElements .= $element->getHTMLContent() . "\n";
+                }
+
+                $content = str_replace("{{" . $type . "}}", $combinedElements, $content);
+            }
+
+            return $content;
+        }
     }
 
 ?>
