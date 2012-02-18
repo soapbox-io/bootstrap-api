@@ -55,10 +55,13 @@ $content = replaceTokens(array($title, $sectionListElement1, $section), $content
                     <row type="success">
                         <cell>G</cell>
                     </row>
+                    <row>
+                        <cell>Plain row</cell>
+                        <cell>Plain row</cell>
+                    </row>
                 </table>
             </request>
         </section>
-
 
         <section title="Image API" description="An API for getting Image data">
             <request url="/image/get" verbs="POST">
