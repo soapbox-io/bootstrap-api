@@ -1,96 +1,91 @@
 <api>
-    <document title="soapbox.io" description="Providing sexy fucking APIs"/>
+    <document title="Sample API" description="Providing sample APIs to the world!"/>
 
     <sections>
 
-        <section title="User API" description="An API for getting User data">
-            <request url="/user/get" verbs="GET,POST,PUT,DELETE,HEAD,PATCH">
+        <section title="Hello World API" description="A description of the Hello World API">
+            <request url="/hello/world" verbs="GET,POST,PUT,DELETE,Any verb you like!">
                 <description>
-                    <![CDATA[Retrieve a particular <strong>user</strong>]]>
+                    <![CDATA[An API's description <strong>can</strong> contain <u>HTML</u> tags<br/>
+                            The descriptions can also run multi-line]]>
                 </description>
-
-                <code title="How this works..." showLineNumbers="true">
-                    <![CDATA[$userSaveReq = new RequestElement();
-$userSaveReq->setUrl("/user/get");
-$userSaveReq->setDescription("Save a new user");
-$userSaveReq->setVerbs(array($userSaveReq->getVerbByName("POST")));
-
-$section->setRequests(array($userGetReq, $userSaveReq));
-
-$content = replaceTokens(array($title, $sectionListElement1, $section), $content);
-]]>
-                </code>
-
-                <alert type="info" title="Hey, you!">
-                    <![CDATA[Have fun :)]]>
-                </alert>
             </request>
 
-            <request url="/user/save" verbs="POST">
+            <request url="/hello/components" verbs="GET">
                 <description>
-                    <![CDATA[Save a <em>new</em> <strong>user</strong>]]>
+                    <![CDATA[Your API can contain some different <strong>components</strong>]]>
                 </description>
 
-                <alert type="warning" title="Notice">
-                    <![CDATA[Be careful... You may get a stuck.]]>
+                <code title="PHP Example (without line numbers)" showLineNumbers="false">
+<![CDATA[<?php
+    class CodeElement extends BaseElement
+    {
+        private $title;
+        private $code;
+        private $showLineNumbers;
+
+        public function __construct()
+        {
+        }
+?>
+                ]]>
+                </code>
+
+                <code title="ActionScript 3.0 Example (with line numbers)" showLineNumbers="true">
+<![CDATA[package
+{
+    import mx.collections.ArrayList;
+    import mx.collections.IList;
+    import mx.core.ClassFactory;
+    import mx.events.FlexEvent;
+
+    import spark.components.CheckBox;
+    import spark.components.DataGroup;
+    import spark.events.RendererExistenceEvent;
+
+    public class CheckBoxGroup extends DataGroup
+    {
+    }
+}
+                ]]>
+                </code>
+
+                <alert type="warning" title="Did I grab your attention?">
+                    <![CDATA[You can create alert boxes of four types:
+
+                    <code>info, warning, success &amp; error</code>]]>
                 </alert>
 
-                <alert type="success" title="Yay!">
-                    <![CDATA[Isn't life beautiful?]]>
+                <alert type="success" title="See?">
+                    <![CDATA[=)]]>
                 </alert>
 
-                <table title="Here's a table example" columns="Column 1,Column 2">
+                <table title="We have tables, too" columns="Column 1,Column 2">
                     <row type="info">
-                        <cell>A</cell>
-                        <cell>B</cell>
+                        <cell>You</cell>
+                        <cell>can</cell>
                     </row>
                     <row type="error">
-                        <cell>C</cell>
-                        <cell>D</cell>
+                        <cell>even</cell>
+                        <cell>add</cell>
                     </row>
                     <row type="warning">
-                        <cell>E</cell>
-                        <cell>F</cell>
+                        <cell>row-level</cell>
+                        <cell>alert styles</cell>
                     </row>
                     <row type="success">
-                        <cell>G</cell>
+                        <cell>Nice, innit?</cell>
                     </row>
                     <row>
-                        <cell>Plain row</cell>
-                        <cell>Plain row</cell>
+                        <cell>...or you can just</cell>
+                        <cell>leave them vanilla</cell>
                     </row>
                 </table>
             </request>
         </section>
 
-        <section title="Image API" description="An API for getting Image data">
-            <request url="/image/get" verbs="POST">
-                <description>
-                    <![CDATA[Retrieve a particular image]]>
-                </description>
-
-                <alert type="error" title="Don't Ignore This!!!">
-                    <![CDATA[Uh oh, you better watch your back son.]]>
-                </alert>
-
-                <code title="How this works..." showLineNumbers="false">
-                    <![CDATA[HTTP/1.1 200 OK
-Date: Thu, 16 Feb 2012 11:26:02 GMT
-Server: Apache/2.2.14 (Unix) DAV/2 mod_ssl/2.2.14 OpenSSL/0.9.8l PHP/5.3.1 mod_perl/2.0.4 Perl/v5.10.1
-X-Powered-By: PHP/5.3.1
-Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0
-Pragma: no-cache
-Content-Length: 226
-Access-Control-Allow-Origin: *
-Content-Encoding: gzip
-Vary: Accept-Encoding
-Content-Type: application/json
-Expires: 0
-
-{"id":"4135","firstName":"Danny","lastName":"Kopping","email":"danny@dannykopping.co.za","password":"","type":"Recruiter\/Employer","active":true,"verified":true,"accountVerificationCodeId":null,"createdAt":"2012-02-16 13:26:03","updatedAt":"2012-02-16 13:26:03","_explicitType":"za.co.rsajobs.vo.User"}
-]]>
-                </code>
-            </request>
+        <section title="Infinity API" description="Add as many sections as you like!">
+            <request url="/infinity?to=beyond" verbs="GET"/>
         </section>
 
     </sections>
