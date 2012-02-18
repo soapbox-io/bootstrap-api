@@ -19,3 +19,9 @@ This little library enables you to create sexy API documentation using a very si
 **All welcome!**
 
 You can contact us at [soapbox.io](mailto:danny@soapbox.io)
+
+## About us
+
+[**soapbox.io**](http://soapbox.io) provides professional SOA services with PHP. We create solid, lightweight REST implementations build with [Doctrine ORM](http://www.doctrine-project.org/), [Aerial](https://github.com/aerial-framework/core/) and [Slim](http://www.slimframework.com/).
+
+[**Contact us**](mailto:danny@soapbox.io)
