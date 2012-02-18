@@ -7,7 +7,7 @@
 
     // if the template is blank or cannot be read
     if(empty($content))
-        die("The <strong>template.html</strong> file could not found or is not readable in ".dirname(__FILE__));
+        die("The <strong>template.html</strong> file could not found or is not readable in " . dirname(__FILE__));
 
     // load configuration file (with CDATA sections being converted to strings)
     libxml_use_internal_errors(true);
@@ -32,7 +32,7 @@
 
     // if the config is blank or cannot be read
     if(empty($config))
-        die("<strong>config.xml</strong> file could not found or is not readable in ".dirname(__FILE__));
+        die("<strong>config.xml</strong> file could not found or is not readable in " . dirname(__FILE__));
 
     $elements = array();
 
@@ -66,20 +66,25 @@
 
     if(!$isPreview)
     {
-        $zip = new Zip();
-        $zip->setComment("Created by soapbox.io's bootstrap-api");
+        $zip = new Zip("api-docs.zip");
+        $zip->setComment("Created by soapbox.io bootstrap-api");
 
-        $zip->addFile($content, "index.html");
-        $zip->addDirectoryContent(dirname(__FILE__)."/assets", "assets");
-        $zip->addDirectoryContent(dirname(__FILE__)."/docs", "docs");
-        $zip->addDirectoryContent(dirname(__FILE__)."/img", "img");
-        $zip->addDirectoryContent(dirname(__FILE__)."/js", "js");
+        $base = "api-docs";
 
-        $zip->sendZip("api-docs.zip");
+        $zip->addFile("$base/index.html", $content);
+
+        $zip->addFolder(dirname(__FILE__)."/assets", "$base/assets");
+        $zip->addFolder(dirname(__FILE__)."/docs", "$base/docs");
+        $zip->addFolder(dirname(__FILE__)."/img", "$base/img");
+        $zip->addFolder(dirname(__FILE__)."/js", "$base/js");
+
+        header("Content-type: application/octet-stream");
+        header("Content-disposition: attachment; filename=api-docs.zip");
+
+        echo $zip->getZipContents();
     }
     else
         echo $content;
-
 
     function autoload($class)
     {
