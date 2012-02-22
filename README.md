@@ -19,6 +19,10 @@ This little library enables you to create sexy API documentation using a very si
 
 **All welcome!**
 
+Web site: http://soapbox.io
+
+Twitter: http://twitter.com/soapboxio
+
 You can contact us at [soapbox.io](mailto:danny@soapbox.io)
 
 ## About us
